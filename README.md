@@ -102,7 +102,7 @@ curl -X POST http://localhost:3000/notes \
 - **pages-build-deployment**
 
 ![Schema](https://img.shields.io/badge/SQL-Schema-success)
-![Inserts](https://img.shields.io/badge/SQL-Inserts-success)
+![Insert](https://img.shields.io/badge/SQL-Insert-success)
 ![Queries](https://img.shields.io/badge/SQL-Queries-success)
 ![Users](https://img.shields.io/badge/SQL-Users-success)
 ```md
