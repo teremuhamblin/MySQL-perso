@@ -1,0 +1,16 @@
+body {
+    font-family: Arial;
+    margin: 20px;
+    background: #f4f4f4;
+}
+
+#add-note {
+    margin-bottom: 20px;
+}
+
+.note {
+    background: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-left: 4px solid #007bff;
+}
