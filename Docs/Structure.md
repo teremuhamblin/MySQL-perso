@@ -1,8 +1,8 @@
 ###### README.md >> markdown 
 # 🗂️ Structure du projet
-- mysql-perso/
+- MySQL-perso/
 ```text
-mysql-perso/
+MySQL-perso/
 ├── Docs/
 ├── .github/
 ├── .gitignore
