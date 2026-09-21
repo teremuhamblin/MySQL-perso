@@ -1,38 +1,83 @@
-const API = 'http://localhost:3000/notes';
+/* ----------------------------------------------------------
+   MySQL-perso Dashboard v4.0
+   Gestion locale des notes + hooks API (future v5.0)
+---------------------------------------------------------- */
 
-async function loadNotes() {
-    const res = await fetch(API);
-    const notes = await res.json();
-    const container = document.getElementById('notes');
-    container.innerHTML = '';
+const notesContainer = document.getElementById("notes");
+const statusBar = document.getElementById("status");
 
-    notes.forEach(n => {
-        container.innerHTML += `
-            <div class="note">
-                <h3>${n.title}</h3>
-                <p>${n.content}</p>
-                <button onclick="deleteNote(${n.id})">Supprimer</button>
-            </div>
-        `;
-    });
+/* ----------------------------------------------------------
+   UTILITAIRES
+---------------------------------------------------------- */
+
+function setStatus(msg) {
+    statusBar.textContent = "Status : " + msg;
 }
 
-async function addNote() {
-    const title = document.getElementById('title').value;
-    const content = document.getElementById('content').value;
+/* ----------------------------------------------------------
+   AJOUTER UNE NOTE
+---------------------------------------------------------- */
 
-    await fetch(API, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, content })
-    });
+function addNote() {
+    const title = document.getElementById("title").value.trim();
+    const content = document.getElementById("content").value.trim();
 
+    if (!title || !content) {
+        setStatus("Erreur : champs vides");
+        return;
+    }
+
+    const note = {
+        id: Date.now(),
+        title,
+        content
+    };
+
+    saveNote(note);
+    renderNote(note);
+
+    document.getElementById("title").value = "";
+    document.getElementById("content").value = "";
+
+    setStatus("Note ajoutée");
+}
+
+/* ----------------------------------------------------------
+   STOCKAGE LOCAL (v4.0)
+---------------------------------------------------------- */
+
+function saveNote(note) {
+    const notes = JSON.parse(localStorage.getItem("notes") || "[]");
+    notes.push(note);
+    localStorage.setItem("notes", JSON.stringify(notes));
+}
+
+/* ----------------------------------------------------------
+   AFFICHAGE DES NOTES
+---------------------------------------------------------- */
+
+function renderNote(note) {
+    const div = document.createElement("div");
+    div.className = "note-card";
+
+    div.innerHTML = `
+        <div class="note-title">${note.title}</div>
+        <div class="note-content">${note.content}</div>
+    `;
+
+    notesContainer.appendChild(div);
+}
+
+function loadNotes() {
+    const notes = JSON.parse(localStorage.getItem("notes") || "[]");
+    notes.forEach(renderNote);
+    setStatus("Notes chargées");
+}
+
+/* ----------------------------------------------------------
+   INIT
+---------------------------------------------------------- */
+
+window.onload = () => {
     loadNotes();
-}
-
-async function deleteNote(id) {
-    await fetch(`${API}/${id}`, { method: 'DELETE' });
-    loadNotes();
-}
-
-loadNotes();
+};
