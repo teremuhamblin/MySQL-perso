@@ -89,9 +89,9 @@ curl -X POST http://localhost:3000/notes \
 - **ci.yml**
 
 ![CI](https://img.shields.io/badge/CI-GitHub_Actions-black?logo=githubactions)
-![Lint](https://img.shields.io/badge/Markdown-Linting-blue)
+![Lint](https://img.shields.io/badge/Markdown-Linting-success)
 ![Build](https://img.shields.io/badge/Build-Pass-success)
-![Release](https://img.shields.io/badge/Release-Automated-purple)
+![Release](https://img.shields.io/badge/Release-Automated-success)
 ```text
    - Vérification syntaxique SQL  
    - Lint Markdown  
@@ -101,10 +101,10 @@ curl -X POST http://localhost:3000/notes \
 ```
 - **pages-build-deployment**
 
-![Schema](https://img.shields.io/badge/SQL-Schema-blue)
-![Inserts](https://img.shields.io/badge/SQL-Inserts-green)
-![Queries](https://img.shields.io/badge/SQL-Queries-orange)
-![Users](https://img.shields.io/badge/SQL-Users-red)
+![Schema](https://img.shields.io/badge/SQL-Schema-success)
+![Inserts](https://img.shields.io/badge/SQL-Inserts-success)
+![Queries](https://img.shields.io/badge/SQL-Queries-success)
+![Users](https://img.shields.io/badge/SQL-Users-success)
 ```md
    - Déploiement automatique du Dashboard Web
 ```
