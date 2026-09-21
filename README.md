@@ -1,13 +1,15 @@
 ###### README.md
+---
+
+[![MySQL-Perso CI](https://github.com/teremuhamblin/MySQL-perso/actions/workflows/ci.yml/badge.svg)](https://github.com/teremuhamblin/MySQL-perso/actions/workflows/ci.yml)
+
+---
 # MySQL-perso
 - Version 4.0 
 - Personal Data Core v4.0
-
 ---
-```text
 - Système MySQL personnel évolué, conçu pour stocker, consulter et gérer des notes avec une architecture extensible.  
 - Version 4.0 : ajout d’une API REST, d’un Dashboard Web minimal, d’un mode SecureOps, d’une documentation avancée et d’un pipeline CI/CD renforcé.
-```
 ---
 
 ### 🎯 Mission & Objectifs
