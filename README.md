@@ -1,4 +1,5 @@
 ###### README.md >> markdown
+[![pages-build-deployment](https://github.com/teremuhamblin/MySQL-perso/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/teremuhamblin/MySQL-perso/actions/workflows/pages/pages-build-deployment)
 # MySQL-perso
 - Mini Projet Personnel
 
