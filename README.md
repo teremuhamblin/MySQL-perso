@@ -95,6 +95,11 @@ curl -X POST http://localhost:3000/notes \
    - Pipeline stable sans dépendances externes
 ```
 - **pages-build-deployment**
+![Schema](https://img.shields.io/badge/SQL-Schema-blue)
+![Inserts](https://img.shields.io/badge/SQL-Inserts-green)
+![Queries](https://img.shields.io/badge/SQL-Queries-orange)
+![Users](https://img.shields.io/badge/SQL-Users-red)
+
 ```md
    - Déploiement automatique du Dashboard Web
 ```
