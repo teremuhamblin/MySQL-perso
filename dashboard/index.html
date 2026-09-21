@@ -2,21 +2,60 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MySQL-perso Dashboard</title>
+
+    <!-- Style principal -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Police militaire optionnelle -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap">
 </head>
+
 <body>
-    <h1>MySQL-perso Dashboard</h1>
 
-    <div id="add-note">
-        <input id="title" placeholder="Titre">
-        <textarea id="content" placeholder="Contenu"></textarea>
-        <button onclick="addNote()">Ajouter</button>
-    </div>
+    <!-- HEADER -->
+    <header class="header">
+        <h1 class="title">MySQL‑perso Dashboard</h1>
+        <p class="subtitle">Système personnel de gestion des notes — v4.0</p>
+    </header>
 
-    <h2>Notes</h2>
-    <div id="notes"></div>
+    <!-- MAIN -->
+    <main class="container">
 
+        <!-- MODULE : Ajouter une note -->
+        <section class="module" id="module-add">
+            <h2>Ajouter une note</h2>
+
+            <div class="form-group">
+                <label for="title">Titre</label>
+                <input id="title" class="input" placeholder="Titre de la note">
+            </div>
+
+            <div class="form-group">
+                <label for="content">Contenu</label>
+                <textarea id="content" class="textarea" placeholder="Contenu détaillé"></textarea>
+            </div>
+
+            <button class="btn btn-primary" onclick="addNote()">Ajouter la note</button>
+        </section>
+
+        <!-- MODULE : Liste des notes -->
+        <section class="module" id="module-notes">
+            <h2>Notes enregistrées</h2>
+            <div id="notes" class="notes-list"></div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <span>MySQL‑perso v4.0 — Système personnel</span>
+        <span id="status" class="status">Status : prêt</span>
+    </footer>
+
+    <!-- Script principal -->
     <script src="app.js"></script>
 </body>
 </html>
