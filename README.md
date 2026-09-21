@@ -88,7 +88,7 @@ curl -X POST http://localhost:3000/notes \
 ### 🚀 CI/CD — GitHub Actions (v4.0)
 - **ci.yml**
 
-![CI](https://img.shields.io/badge/CI-GitHub_Actions-black?logo=githubactions)
+![CI](https://img.shields.io/badge/CI-GitHub_Actions-success?logo=githubactions)
 ![Lint](https://img.shields.io/badge/Markdown-Linting-success)
 ![Build](https://img.shields.io/badge/Build-Pass-success)
 ![Release](https://img.shields.io/badge/Release-Automated-success)
