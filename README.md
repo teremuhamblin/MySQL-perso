@@ -22,9 +22,11 @@ MySQL‑perso v4.0 devient un mini‑système complet, capable de :
 - Maintenir une structure professionnelle compatible GitHub Actions  
 - Préparer l’évolution vers une version 5.0 modulaire
 ```
-
 ---
 
+[![pages-build-deployment](https://github.com/teremuhamblin/MySQL-perso/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/teremuhamblin/MySQL-perso/actions/workflows/pages/pages-build-deployment)
+
+---
 ### 🗄️ Base de données
 ```sql
 - Nom ; **mypersonal.db**
