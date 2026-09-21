@@ -20,6 +20,8 @@
 4. Exécuter `user.sql` pour créer un utilisateur MySQL dédié
 
 ### Base de données
+[![MySQL-Perso CI](https://github.com/teremuhamblin/MySQL-perso/actions/workflows/ci.yml/badge.svg)](https://github.com/teremuhamblin/MySQL-perso/actions/workflows/ci.yml)
+
 Nom : `my_personal_db`  
 Table : `notes`
 
