@@ -1,4 +1,4 @@
-name: MySQL-Perso CI
+name: CI
 
 on:
   push:
@@ -46,4 +46,4 @@ jobs:
           globs: '**/*.md'
 
       - name: CI completed
-        run: echo "MySQL-Perso CI completed successfully."
+        run: echo "CI completed successfully."
