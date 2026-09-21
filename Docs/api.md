@@ -16,3 +16,13 @@ Ajoute une note.
 Body :
 ```json
 { "title": "Titre", "content": "Contenu" }
+`
+
+PUT /notes/:id
+Modifie une note.
+
+DELETE /notes/:id
+Supprime une note.
+`
+
+---
