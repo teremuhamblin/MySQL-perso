@@ -25,10 +25,8 @@ MySQL‑perso v4.0 devient un mini‑système complet, capable de :
 
 ### 🗄️ Base de données
 ```sql
-- Nom ;
-**mypersonal.db**
-- Table principale :
-**notes**
+- Nom ; **mypersonal.db**
+- Table principale : **notes**
 ```
 - Structure
 ```sql
@@ -76,28 +74,32 @@ curl -X POST http://localhost:3000/notes \
 ```
 ### 🛡️ SecureOps Mode (v4.0)
 - Le fichier **secureops/secureops.conf** permet :
+```text
    - Restriction IP  
    - Limitation des requêtes API  
    - Désactivation des routes sensibles  
    - Mode lecture seule  
    - Protection anti‑scan basique  
-
----
-
+```
 ### 🚀 CI/CD — GitHub Actions (v4.0)
 - **ci.yml**
+```text
    - Vérification syntaxique SQL  
    - Lint Markdown  
    - Lint JavaScript API + Dashboard  
    - Vérification structure du projet  
    - Pipeline stable sans dépendances externes
+```
 - **pages-build-deployment**
+```md
    - Déploiement automatique du Dashboard Web
+```
 
 ---
-
 ### 📈 Autres
 - Voir les fichiers :
-   - MySQL-perso/Docs/
+```md
+MySQL-perso/Docs/
      - ROADMAP.md
-     - CHANGELOG.md 
+     - CHANGELOG.md
+```
