@@ -1,0 +1,50 @@
+name: MySQL-Perso CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Vérification syntaxique des fichiers SQL
+      - name: Validate SQL files
+        run: |
+          echo "🔍 Vérification des fichiers SQL..."
+          for file in $(find . -name "*.sql"); do
+            echo "➡️ Vérification : $file"
+            # Vérification simple : le fichier ne doit pas être vide
+            if [ ! -s "$file" ]; then
+              echo "❌ ERREUR : $file est vide."
+              exit 1
+            fi
+          done
+          echo "✔ SQL OK"
+
+      # Lint Markdown
+      - name: Lint Markdown files
+        uses: DavidAnson/markdownlint-cli2-action@v15
+        with:
+          globs: "**/*.md"
+
+      # Vérification JSON (notes_examples.json)
+      - name: Validate JSON files
+        run: |
+          echo "🔍 Vérification des fichiers JSON..."
+          for file in $(find . -name "*.json"); do
+            echo "➡️ Vérification : $file"
+            cat "$file" | jq empty
+          done
+          echo "✔ JSON OK"
+
+      # Log final
+      - name: CI Completed
+        run: echo "✔ MySQL-Perso CI terminé avec succès."
