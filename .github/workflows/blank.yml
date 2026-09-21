@@ -2,10 +2,13 @@ name: MySQL-Perso CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
   pull_request:
-    branches: [ "main" ]
+    branches: [main]
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   validate:
@@ -15,24 +18,32 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Vérification syntaxique des fichiers SQL
-      - name: Validate SQL files
-        run: |
-          echo "🔍 Vérification des fichiers SQL..."
-          for file in $(find . -name "*.sql"); do
-            echo "➡️ Vérification : $file"
-            mysql --version
-            # Vérification syntaxique via mysql --help (pas d'exécution réelle)
-            cat "$file" | grep -v "^--" > /dev/null
-          done
-          echo "✔ SQL OK"
-
-      # Vérification des fichiers Markdown
-      - name: Lint Markdown files
-        uses: DavidAnson/markdownlint-cli2-action@v15
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          globs: "**/*.md"
+          python-version: "3.x"
 
-      # Simple log final
-      - name: CI Completed
-        run: echo "✔ MySQL-Perso CI terminé avec succès."
+      - name: Install SQL linter
+        run: python -m pip install --upgrade sqlfluff
+
+      - name: Validate SQL files
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -d '' sql_files < <(find . -type f -name '*.sql' -print0)
+
+          if ((${#sql_files[@]} == 0)); then
+            echo "No SQL files found."
+            exit 0
+          fi
+
+          echo "Validating ${#sql_files[@]} SQL file(s)..."
+          sqlfluff lint --dialect mysql "${sql_files[@]}"
+
+      - name: Lint Markdown files
+        uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          globs: '**/*.md'
+
+      - name: CI completed
+        run: echo "MySQL-Perso CI completed successfully."
