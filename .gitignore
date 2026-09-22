@@ -1,31 +1,143 @@
-## Ignore Visual Studio SSDT sqlproj specific temporary files, build results, etc
-##
-##
-## Get latest from https://github.com/github/gitignore/blob/master/SSDT-sqlproj.gitignore
-# Build output
+#######################################################################
+# 🛡️ .GITIGNORE — MySQL-Perso v7.0 CyberDefense Edition
+# Durcissement multi-environnements : SQL Server, MySQL, Docker, VS, CI/CD
+#######################################################################
+
+############################
+# 🔧 BUILD / BINAIRES
+############################
 bin/
 obj/
+dist/
+build/
+out/
 
-# DACPAC files
+############################
+# 🗄️ SQL SERVER / SSDT
+############################
 *.dacpac
-
-# Publish profiles (optional, if environment-specific)
-*.publish.xml
-
-# SQL Server debug files
 *.dbmdl
 *.sqlcmdvars
+*.publish.xml
 
-# Visual Studio settings
+############################
+# 🐬 MYSQL / MARIADB
+############################
+*.sql.bak
+*.sql.tmp
+*.sql.log
+mysql-data/
+mysql-backup/
+*.cnf
+
+############################
+# 🧪 CI/CD (GitHub Actions)
+############################
+.github/workflows/*.tmp
+.github/workflows/*.bak
+.github/workflows/*-cache/
+*.coverage
+coverage/
+htmlcov/
+pytest_cache/
+
+############################
+# 🧱 DOCKER / CONTAINERS
+############################
+docker-data/
+docker-compose.override.yml
+.docker/
+*.container.log
+
+############################
+# 🧰 ENVIRONNEMENTS / SECRETS
+############################
+.env
+.env.*
+*.secret
+*.vault
+secrets/
+keys/
+certs/
+*.pem
+*.crt
+*.key
+
+############################
+# 🖥️ VISUAL STUDIO / VS CODE
+############################
 .vs/
-
-# User-specific files
-*.user
+.vscode/
 *.suo
+*.user
 *.userosscache
 *.sln.docstates
 
-# Backup files
-*.bak
+############################
+# 📝 LOGS / TEMP
+############################
 *.log
+*.log.*
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+tmp/
+temp/
 
+############################
+# 🧩 NODE / JS
+############################
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+############################
+# 🐍 PYTHON
+############################
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+############################
+# 🐚 SHELL
+############################
+*.bash_history
+*.zsh_history
+*.kate-swp
+*.viminfo
+
+############################
+# 🛡️ CYBERDEFENSE / SECUREOPS
+############################
+audit/
+intel/
+reports/
+ops/
+missions/
+secureops/
+*.audit.json
+*.trace
+*.forensics
+
+############################
+# 📦 BACKUPS / EXPORTS
+############################
+backup/
+export/
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar
+
+#######################################################################
+# FIN — MySQL-Perso v7.0 CyberDefense Edition
+#######################################################################
